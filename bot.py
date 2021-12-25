@@ -8,7 +8,7 @@ bot = telebot.TeleBot('5065414273:AAG2iuFSLUjeKAq2TEQ5ttsncaN3xVQY5i4')
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "Привет, я буду отправлять тебе котов каждые пол часа"
+    bot.reply_to(message, "Привет, я буду отправлять тебе котов каждые 3 минуты"
                           "\nнажми /cats чтобы начать")
 
 
