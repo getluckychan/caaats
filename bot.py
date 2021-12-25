@@ -22,7 +22,7 @@ def get_cat(message):
             for url in image:
                 get = url["url"]
                 bot.send_message(message.chat.id, get)
-                time.sleep(1800)
+                time.sleep(180)
 
 
 @bot.message_handler(func=lambda message: True)
