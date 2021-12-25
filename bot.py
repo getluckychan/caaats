@@ -30,6 +30,7 @@ def get_cat(message):
                 bot.send_message(message.chat.id, get)
                 time.sleep(180)
         if message.text == "Стоп":
+            bot.reply_to(message, "Ты остановил рассылку, нажми /cats чтобы снова начать")
             break
 
 
