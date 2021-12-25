@@ -2,6 +2,8 @@ import requests as r
 from requests.auth import HTTPBasicAuth
 import telebot
 import time
+from telebot import types
+
 
 bot = telebot.TeleBot('5065414273:AAG2iuFSLUjeKAq2TEQ5ttsncaN3xVQY5i4')
 
@@ -12,8 +14,11 @@ def send_welcome(message):
                           "\nнажми /cats чтобы начать")
 
 
-@bot.message_handler(commands=['cats'])
+@bot.message_handler(commands=['cats'], content_types=['text'])
 def get_cat(message):
+    markup = types.ReplyKeyboardMarkup(row_width=1)
+    btn = types.KeyboardButton('Стоп')
+    markup.add(btn)
     while True:
         response = r.get('https://api.thecatapi.com/v1/images/search',
                          auth=HTTPBasicAuth('user', 'a0a6a2d5-d7dd-4341-ac89-3cdbcce6531d'))
@@ -23,6 +28,8 @@ def get_cat(message):
                 get = url["url"]
                 bot.send_message(message.chat.id, get)
                 time.sleep(180)
+        if message.text == "Стоп":
+            break
 
 
 @bot.message_handler(func=lambda message: True)
