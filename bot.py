@@ -19,6 +19,7 @@ def get_cat(message):
     markup = types.ReplyKeyboardMarkup(row_width=1)
     btn = types.KeyboardButton('Стоп')
     markup.add(btn)
+    bot.reply_to(message, "Нажми на кнопку чтобы остановить", reply_markup=markup)
     while True:
         response = r.get('https://api.thecatapi.com/v1/images/search',
                          auth=HTTPBasicAuth('user', 'a0a6a2d5-d7dd-4341-ac89-3cdbcce6531d'))
