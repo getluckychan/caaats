@@ -5,7 +5,7 @@ from telebot import types
 from quotes import tags, help_txt
 from random import choice
 
-bot = telebot.TeleBot('5065414273:AAG2iuFSLUjeKAq2TEQ5ttsncaN3xVQY5i4')
+bot = telebot.TeleBot('token')
 
 
 @bot.message_handler(commands=['start'])
